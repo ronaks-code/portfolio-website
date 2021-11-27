@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RosaCodes</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="granim.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="canvas-image-blending"></canvas>
+
+    <div class="main-content" style="text-align: center; width: 100%; position: absolute">
+      <center>
+
+        <div class="" style="height: 750px;">
+          <h1 style="padding-top: 230px; color: white;">Hi, my name is Rosalie</h1>
+          <p style="padding-top: 25px; color: white;">I love to code, play tennis & basketball, and learn new things.</p>
+        </div>
+
+        <h2 style="padding-bottom: 20px">My Current Projects</h2>
+
+        <!-- Mijnmedicijn app -->
+        <div class="flex-container" style="padding-bottom: 50px; padding-top: 40px;">
+          <div class="big-container-left" style="">
+            <h3>MijnMedicijn App</h3>
+            <p class="time-text">July 2021 - TBD</p>
+            <p style="padding-bottom: 5px;">I am currently working on an app for <a href="https://www.mijnmedicijn.nl" target="_blank">MijnMedicijn.nl</a> and <a href="https://www.meamedica.com" target="_blank">Meamedica.com</a>. MijnMedicijn has DNA tests that can tell you information about your genes, so I made an app that would display the results of those tests to provide users with easy access. The code & the design of the app was done by me. </p>
+            <button type="button" class="btn btn-outline-success" id="modalMijnMedicijnButton">See more</button>
+          </div>
+          <div class="small-container-right">
+            <img src="assets/mijnmedicijnlogo.png" alt="" width="65%">
+          </div>
+        </div>
+
+        <!-- Tech Club -->
+        <div class="flex-container" style="padding-bottom: 50px; padding-top: 50px;">
+          <div class="big-container-left" style="">
+            <h3>Tech Club Pinewood High School</h3>
+            <p class="time-text">August 2019 - May 2023 (graduation)</p>
+            <p style="padding-bottom: 10px;">I am the current president of the Pinewood Tech Club. When I arrived in 9th grade, the club was falling apart, and I was the person who rebuilt the entire club, growing it from around 4 members to currently 17 members. We work on projects such as the Spirit Points website and app, and we also attend hackathons.</p>
+            <button type="button" class="btn btn-outline-success" id="modalTechClub">See more</button>
+          </div>
+          <div class="small-container-right" style="">
+            <img src="assets/panthers_square.png" alt="" width="65%">
+          </div>
+        </div>
+
+        <!-- Bytecamps -->
+        <div class="flex-container" style="padding-bottom: 50px; padding-top: 50px;">
+          <div class="big-container-left" style="">
+            <h3>Bytecamps</h3>
+            <p class="time-text">May 2020 - TBD</p>
+            <p style="padding-bottom: 10px;">Together with my sister, Catelijne, I founded <a href="https://www.bytecamps.com" target="_blank">Bytecamps</a>. We teach children (around ages 8 - 15) how to code (and use the art software Procreate). We teach both summer camps and private lessons, having taught over 30 children already since we started. Courses are taught in SwiftUI + Swift, HTML + CSS + JS, Python, Scratch, and Procreate.</p>
+            <button type="button" class="btn btn-outline-success" id="modalBytecamps">See more</button>
+          </div>
+          <div class="small-container-right" style="">
+            <img src="assets/Squirrel Bytecamps.png" alt="" width="65%">
+          </div>
+        </div>
+
+        <!-- Rosacodes Instagram -->
+        <div class="flex-container" style="padding-bottom: 100px; padding-top: 50px;">
+          <div class="big-container-left" style="">
+            <h3>Rosacodes Instagram</h3>
+            <p class="time-text">June 2021 - TBD</p>
+            <p style="padding-bottom: 10px;">I created a programming instagram account (<a href="https://www.instagram.com/rosacodes" target="_blank">@Rosacodes</a>) in order to document my coding progress and learn how to make good content that speaks to people. Over time, both the content and the graphic design has improved a lot.</p>
+            <button type="button" class="btn btn-outline-success" id="modalInstagram">See more</button>
+          </div>
+          <div class="small-container-right" style="">
+            <img src="assets/rosacodes.png" alt="" width="65%">
+          </div>
+        </div>
+
+        <h2 style="padding-bottom: 20px">My Completed Projects</h2>
+
+        
+
+<!--
+        <div class="container" style="width: 100%; display: flex; flex-wrap: wrap; justify-content: stretch;">
+          <div class="row" style="background-color: red;">
+            <div class="col" id="modalMijnMedicijnButton">
+              <img src="assets/mijnmedicijn.png" alt="" style="width: 350px; border-radius: 20px;">
+            </div>
+            <div class="col" style="background-color: yellow;">
+              <img src="assets/mijnmedicijn.png" alt="" style="width: 350px; border-radius: 20px;">
+            </div>
+            <div class="col" style="background-color: red;">
+              <img src="assets/mijnmedicijn.png" alt="" style="width: 350px; border-radius: 20px;">
+            </div>
+            <div class="col" style="background-color: yellow;">
+              <img src="assets/mijnmedicijn.png" alt="" style="width: 350px; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
+         -->
+
+        <div id="modalMijnMedicijn" class="modal">
+
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>MijnMedicijn App</h2>
+            <br>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/mijnmedicijn.png" style="height: 400px; object-fit: contain; width: 100%;" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/mijnmedicijn.png" style="height: 400px; object-fit: contain; width: 100%;" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/mijnmedicijn.png" style="height: 400px; object-fit: contain; width: 100%;" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <br>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>I made the MijnMedicijn App in collaboration with <a href="https://www.mijnmedicijn.nl" target="_blank">MijnMedicijn.nl</a> and <a href="https://www.meamedica.com" target="_blank">Meamedica.com</a>. MijnMedicijn has DNA tests that can tell you a let about your genes, so I made an app that would display the results of those tests. All the code & the entire design of the app was all done by me.</p>
+            <p>Skills used:</p>
+            <ul>
+              <li>SwiftUI</li>
+              <li>Swift</li>
+            </ul>
+            <p>Skills learned:</p>
+            <ul>
+              <li>XML Parsing</li>
+            </ul>
+          </div>
+
+        </div>
+
+
+
+
+      </center>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
