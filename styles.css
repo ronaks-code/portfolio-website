@@ -137,5 +137,18 @@ ul {
 }
 
 .small-container-right {
-  flex-grow: 1
+  flex-grow: 1;
+  text-align: right;
+}
+
+.big-container-right {
+  text-align: right;
+  flex-grow: 3;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.small-container-left {
+  flex-grow: 1;
+  text-align: left;
 }
