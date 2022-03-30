@@ -317,7 +317,7 @@ window.onclick = function(event) {
 }
 
 //MODAL SKIING
-var modalSkiing = document.getElementById("modalSkiing");
+var modalSkiing = document.getElementById("modalWindsurfing");
 
 // Get the button that opens the modal
 var btnSkiing = document.getElementById("SkiingButton");
@@ -343,7 +343,7 @@ window.onclick = function(event) {
 }
 
 //MODAL WINDSURFING
-var modalWindsurfing = document.getElementById("modalWindsurfing");
+var modalWindsurfing = document.getElementById("modalSkiing");
 
 // Get the button that opens the modal
 var btnWindsurfing = document.getElementById("WindsurfingButton");
