@@ -152,3 +152,77 @@ ul {
   flex-grow: 1;
   text-align: left;
 }
+
+/* Contact me section */
+
+.fa {
+  padding: 20px;
+  font-size: 20px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-paper-plane {
+  background: #3D348B;
+  color: white;
+}
+
+.fa-instagram {
+  background: #7678ED;
+  color: white;
+}
+
+.fa-github {
+  background: #0973fd;
+  color: white;
+}
+
+/* Styling for the progress bars */
+
+.progressbar {
+  height: 30px;
+  width: 20%;
+  background-color: #3D348B;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.inner-progressbar {
+  background-color: #7678ED;
+  height: 22px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-right: 4px;
+  color: white;
+  text-align: right;
+  font-size: 15px;
+}
+
+.dutch {
+  width: 100%;
+}
+
+.english {
+  width: 100%;
+}
+
+.german {
+  width: 85%;
+}
+
+.mandarin {
+  width: 20%
+}
+
+@media only screen and (max-width: 800px){
+  .progressbar {
+    width: 60%;
+  }
+}
