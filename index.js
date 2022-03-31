@@ -316,14 +316,14 @@ window.onclick = function(event) {
   }
 }
 
-//MODAL SKIING
-var modalSkiing = document.getElementById("modalWindsurfing");
+//MODAL SKIINg
+var modalSkiing = document.getElementById("modalAap");
 
 // Get the button that opens the modal
 var btnSkiing = document.getElementById("SkiingButton");
 
 // Get the <span> element that closes the modal
-var spanSkiing = document.getElementsByClassName("closeSkiing")[0];
+var spanSkiing = document.getElementsByClassName("closeAap")[0];
 
 // When the user clicks on the button, open the modal
 btnSkiing.onclick = function() {
@@ -343,18 +343,20 @@ window.onclick = function(event) {
 }
 
 //MODAL WINDSURFING
-var modalWindsurfing = document.getElementById("modalSkiing");
+var modalWindsurfing = document.getElementById("modalNoot");
 
 // Get the button that opens the modal
 var btnWindsurfing = document.getElementById("WindsurfingButton");
 
 // Get the <span> element that closes the modal
-var spanWindsurfing = document.getElementsByClassName("closeWindsurfing")[0];
+var spanWindsurfing = document.getElementsByClassName("closeNoot")[0];
 
 // When the user clicks on the button, open the modal
 btnWindsurfing.onclick = function() {
-  console.log("clicked")
+  console.log("windsutfing butting clicked");
+  console.log("before", modalWindsurfing.style.display);
   modalWindsurfing.style.display = "block";
+  console.log("after", modalWindsurfing.style.display);
 }
 
 // When the user clicks on <span> (x), close the modal
