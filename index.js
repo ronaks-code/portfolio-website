@@ -317,13 +317,13 @@ window.onclick = function(event) {
 }
 
 //MODAL SKIINg
-var modalSkiing = document.getElementById("modalAap");
+var modalSkiing = document.getElementById("modalSkiing");
 
 // Get the button that opens the modal
 var btnSkiing = document.getElementById("SkiingButton");
 
 // Get the <span> element that closes the modal
-var spanSkiing = document.getElementsByClassName("closeAap")[0];
+var spanSkiing = document.getElementsByClassName("closeSkiing")[0];
 
 // When the user clicks on the button, open the modal
 btnSkiing.onclick = function() {
@@ -343,13 +343,13 @@ window.onclick = function(event) {
 }
 
 //MODAL WINDSURFING
-var modalWindsurfing = document.getElementById("modalNoot");
+var modalWindsurfing = document.getElementById("modalWindsurfing");
 
 // Get the button that opens the modal
 var btnWindsurfing = document.getElementById("WindsurfingButton");
 
 // Get the <span> element that closes the modal
-var spanWindsurfing = document.getElementsByClassName("closeNoot")[0];
+var spanWindsurfing = document.getElementsByClassName("closeWindsurfing")[0];
 
 // When the user clicks on the button, open the modal
 btnWindsurfing.onclick = function() {
@@ -368,5 +368,31 @@ spanWindsurfing.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modalWindsurfing) {
     modalWindsurfing.style.display = "none";
+  }
+}
+
+//MODAL TEENCERT
+var modalTeenCERT = document.getElementById("modalTeenCERT");
+
+// Get the button that opens the modal
+var btnTeenCERT = document.getElementById("TeenCERTButton");
+
+// Get the <span> element that closes the modal
+var spanTeenCERT = document.getElementsByClassName("closeTeenCERT")[0];
+
+// When the user clicks on the button, open the modal
+btnTeenCERT.onclick = function() {
+  modalTeenCERT.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanTeenCERT.onclick = function() {
+  modalTeenCERT.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modalTeenCERT) {
+    modalTeenCERT.style.display = "none";
   }
 }
