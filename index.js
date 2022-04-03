@@ -142,6 +142,32 @@ btnRosaCodes.onclick = function() {
   window.open("https://instagram.com/rosacodes", "_blank")
 }
 
+//MODAL INSPIRITAI
+var modalInspiritAI = document.getElementById("modalInspiritAI");
+
+// Get the button that opens the modal
+var btnInspiritAI = document.getElementById("InspiritAIButton");
+
+// Get the <span> element that closes the modal
+var spanInspiritAI = document.getElementsByClassName("closeInspiritAI")[0];
+
+// When the user clicks on the button, open the modal
+btnInspiritAI.onclick = function() {
+  modalInspiritAI.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanInspiritAI.onclick = function() {
+  modalInspiritAI.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modalInspiritAI) {
+    modalInspiritAI.style.display = "none";
+  }
+}
+
 //SPLANNER LINK
 var btnSplanner = document.getElementById("splannerButton");
 btnSplanner.onclick = function() {
@@ -316,7 +342,7 @@ window.onclick = function(event) {
   }
 }
 
-//MODAL SKIINg
+//MODAL SKIING
 var modalSkiing = document.getElementById("modalSkiing");
 
 // Get the button that opens the modal
