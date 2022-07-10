@@ -1,40 +1,53 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBPlEX6qzjkX5Qty52mAo0XXXTsDYuiMmU",
-  authDomain: "personal-website-801cc.firebaseapp.com",
-  projectId: "personal-website-801cc",
-  storageBucket: "personal-website-801cc.appspot.com",
-  messagingSenderId: "893137998155",
-  appId: "1:893137998155:web:a0c7f06109c5e6994bd8ce",
-  measurementId: "G-J3PKX2Y5C0"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBPlEX6qzjkX5Qty52mAo0XXXTsDYuiMmU",
+//   authDomain: "personal-website-801cc.firebaseapp.com",
+//   projectId: "personal-website-801cc",
+//   storageBucket: "personal-website-801cc.appspot.com",
+//   messagingSenderId: "893137998155",
+//   appId: "1:893137998155:web:a0c7f06109c5e6994bd8ce",
+//   measurementId: "G-J3PKX2Y5C0"
+// };
 
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 //
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-db = firebase.firestore();
+// firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+// db = firebase.firestore();
 
-//Get password
-function getPassword() {
-  var docRef = db.collection("password").doc("code");
+// //Get password
+// function getPassword() {
+//   var docRef = db.collection("password").doc("code");
 
-  docRef.get().then((doc) => {
-      if (doc.exists) {
-          console.log("Document data:", doc.data());
-      } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-      }
-  }).catch((error) => {
-      console.log("Error getting document:", error);
-  });
-}
+//   docRef.get().then((doc) => {
+//       if (doc.exists) {
+//           console.log("Document data:", doc.data());
+//       } else {
+//           // doc.data() will be undefined in this case
+//           console.log("No such document!");
+//       }
+//   }).catch((error) => {
+//       console.log("Error getting document:", error);
+//   });
+// }
 
-getPassword()
+// getPassword()
+
+var app = document.getElementById('app');
+
+var typewriter = new Typewriter(app, {
+  loop: true,
+  delay: 75,
+});
+
+typewriter
+  .pauseFor(1000)
+  .typeString('I am a software developer and content creator from the Netherlands.')
+  .pauseFor(3000)
+  .start()
 
 
 var granimInstance = new Granim({
