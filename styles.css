@@ -74,6 +74,11 @@ p {
   height: 300px;
 }
 
+.title-image {
+  border-radius: 20px;
+  width: 350px;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -127,6 +132,12 @@ ul {
     display: inline;
     align-items: center;
   }
+
+  .title-image {
+    width: 200px;
+  }
+
+
 }
 
 .flex-container {

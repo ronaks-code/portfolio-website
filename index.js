@@ -422,3 +422,9 @@ window.onclick = function(event) {
     modalTeenCERT.style.display = "none";
   }
 }
+
+//NANOLEAFS LINK
+var btnNanoleafs = document.getElementById("nanoleafsButton");
+btnNanoleafs.onclick = function () {
+  window.open("https://www.reddit.com/r/3Dprinting/comments/j9zf94/decided_to_make_my_own_3d_printed_nanoleaf_led/", "_blank")
+}
