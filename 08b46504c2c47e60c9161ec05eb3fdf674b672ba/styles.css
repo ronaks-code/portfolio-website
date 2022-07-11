@@ -244,9 +244,9 @@ ul {
     flex: 100%;
   }
 
-  .big-container-left {
+  /* .big-container-left {
     padding-bottom: 20px;
-  }
+  } */
 
   .small-container-right {
     text-align: center;
@@ -258,6 +258,6 @@ ul {
 
   .small-container-left {
     text-align: center;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
   }
 }
