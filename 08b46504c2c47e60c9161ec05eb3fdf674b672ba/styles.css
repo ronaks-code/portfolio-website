@@ -158,7 +158,7 @@ ul {
 .small-container-left {
   flex: 30%;
   padding: 10px;
-  text-align: right;
+  text-align: left;
 }
 
 /* Contact me section */
