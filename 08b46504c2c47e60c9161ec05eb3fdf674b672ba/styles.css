@@ -76,7 +76,7 @@ p {
 
 .title-image {
   border-radius: 20px;
-  width: 350px;
+  width: 80%;
 }
 
 /* The Modal (background) */
@@ -125,31 +125,33 @@ ul {
 
 .flex-container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
 }
 
 .big-container-left {
+  flex: 70%;
+  padding: 10px;
   text-align: left;
-  flex-grow: 3;
-  width: -moz-min-content;
-  width: min-content;
 }
 
 .small-container-right {
-  flex-grow: 1;
+  flex: 30%;
+  padding: 10px;
   text-align: right;
 }
 
 .big-container-right {
-  text-align: right;
-  flex-grow: 3;
-  width: -moz-min-content;
-  width: min-content;
+  flex: 70%;
+  padding: 10px;
+  text-align: left;
 }
 
 .small-container-left {
-  flex-grow: 1;
-  text-align: left;
+  flex: 30%;
+  padding: 10px;
+  text-align: right;
 }
 
 /* Contact me section */
@@ -230,18 +232,32 @@ ul {
     align-items: center;
   }
 
-  .title-image {
-    width: 150px;
-  }
-
   .progressbar {
     width: 60%;
   }
-  .flex-container {
-    flex-direction: column;
+
+  .flex-container-reverse {
+    flex-direction: column-reverse;
+  }
+  
+  .big-container-left, .small-container-right {
+    flex: 100%;
   }
 
   .big-container-left {
-    width: 80%;
+    padding-bottom: 20px;
+  }
+
+  .small-container-right {
+    text-align: center;
+  }
+
+  .big-container-right, .small-container-left {
+    flex: 100%;
+  }
+
+  .small-container-left {
+    text-align: center;
+    padding-bottom: 20px;
   }
 }
