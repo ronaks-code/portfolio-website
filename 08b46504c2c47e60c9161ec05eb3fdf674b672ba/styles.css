@@ -231,11 +231,13 @@ ul {
   }
 
   .title-image {
-    width: 200px;
+    width: 150px;
   }
 
   .progressbar {
     width: 60%;
   }
-
+  .flex-container {
+    flex-direction: column;
+  }
 }
