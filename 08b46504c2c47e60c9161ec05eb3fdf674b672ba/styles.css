@@ -130,6 +130,13 @@ ul {
   text-align: center;
 }
 
+.flex-container-reverse {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
+
 .big-container-left {
   flex: 70%;
   padding: 10px;
@@ -244,10 +251,6 @@ ul {
     flex: 100%;
   }
 
-  /* .big-container-left {
-    padding-bottom: 20px;
-  } */
-
   .small-container-right {
     text-align: center;
   }
@@ -258,6 +261,5 @@ ul {
 
   .small-container-left {
     text-align: center;
-    /* padding-bottom: 20px; */
   }
 }
