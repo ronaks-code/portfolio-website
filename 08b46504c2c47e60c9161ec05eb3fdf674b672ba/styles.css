@@ -123,22 +123,6 @@ ul {
   list-style-type: square;
 }
 
-@media only screen and (max-width: 500px){
-  .container-fluid {
-    align-content: center;
-  }
-
-  .header {
-    display: inline;
-    align-items: center;
-  }
-
-  .title-image {
-    width: 200px;
-  }
-
-}
-
 .flex-container {
   display: flex;
   justify-content: space-around;
@@ -236,8 +220,22 @@ ul {
   width: 20%
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 600px) and (min-width: 200px){
+  .container-fluid {
+    align-content: center;
+  }
+
+  .header {
+    display: inline;
+    align-items: center;
+  }
+
+  .title-image {
+    width: 200px;
+  }
+
   .progressbar {
     width: 60%;
   }
+
 }
