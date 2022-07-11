@@ -240,4 +240,8 @@ ul {
   .flex-container {
     flex-direction: column;
   }
+
+  .big-container-left {
+    width: 80%;
+  }
 }
