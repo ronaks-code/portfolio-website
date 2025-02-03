@@ -1,168 +1,1615 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Enter Password</title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Personal Website</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="granim.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="canvas-image-blending"></canvas>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex, nofollow">
-
-        <style>
-            *,
-            *:after,
-            *:before {
-                box-sizing: border-box;
-            }
-            body,
-            html {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-                font-weight: 300;
-                font-size: 16px;
-                color: #2D3737;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 100%;
-            }
-
-            @media (min-width: 300px) {
-                body, html {
-                    background-image: url("phoneBackground.jpg");
-                    background-size : 100%;
-                }
-            }
-
-            @media (min-width: 850px) {
-                body, html {
-                    background-image : url("backgroundIpad.jpg");
-                    background-size : 100%;
-                    
-                }
-            }
-
-            @media (min-width: 1400px) {
-                body, html {
-                    background-image : url("background.jpeg");
-                    background-size : 100%;
-                    
-                }
-            }
-
-            .protected {
-                background: #fff;
-                -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-                box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-                border-radius: 3px;
-                min-width: 250px;
-
-            }
-            .protected__content {
-                padding: 24px 28px;
-            }
-            .protected__content__heading {
-                font-size: 16px;
-                font-weight: 500;
-                margin: 0 0 12px;
-                line-height: 1;
-            }
-            .protected__alert {
-                display: none;
-                border-bottom: 1px solid transparent;
-                border-radius: 3px 3px 0 0;
-                padding: 12px 14px;
-                color: #a94442;
-                background-color: #f2dede;
-                border-color: #ebccd1;
-            }
-            .protected__content__input {
-                display: block;
-                border: solid 1px #ccc;
-                padding: 12px 14px;
-                -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-                box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-                font-size: 16px;
-                width: 100%;
-                border-radius: 3px;
-
-                margin-bottom: 12px;
-            }
-            .protected__content__input:focus {
-                outline: none;
-                border-color: #228843;
-            }
-            .protected__content__btn {
-                background-color: #228843;
-                border-radius: 3px;
-                cursor: pointer;
-                border: none;
-                color: #fff;
-                padding: 12px 14px;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-                font-weight: 500;
-                font-size: 16px;
-
-            }
-            .protected__content__btn:hover {
-                background-color: #1C6D36;
-            }
-
-        </style>
-
-    </head>
-
-    <body>
-
-        <div class="protected">
-            <div class="protected__alert" data-id="alert">Wrong password, try again</div>
-            <div class="protected__content">
-                <h1 class="protected__content__heading">Enter the password to unlock Rosalie's website</h1>
-                <input class="protected__content__input" data-id="password" type="password" placeholder="password"/>
-                <button data-id="button" type="button" class="protected__content__btn">Continue</button>
-            </div>
+    <div
+      class="main-content"
+      style="text-align: center; width: 100%; position: absolute"
+    >
+      <center>
+        <div class="" style="height: 750px">
+          <h1 style="padding-top: 230px; color: white">Hi, my name is Ronak</h1>
+          <p style="padding-top: 25px; color: white" id="app"></p>
         </div>
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
-        <script type="text/javascript">
-            "use strict"
-            var button = document.querySelectorAll('[data-id="button"]')
-            var password = document.querySelectorAll('[data-id="password"]')
+        <h2 style="padding-bottom: 10px; padding-top: 10px">Introduction</h2>
 
-            function login(secret) {
-                var hash = sha1(secret)
-                var url = hash + "/index.html"
-                var alert = document.querySelectorAll('[data-id="alert"]')
+        <!-- Introduction -->
+        <div
+          class="flex-container-reverse"
+          style="padding-bottom: 50px; padding-top: 20px"
+        >
+          <div class="big-container-left" style="">
+            <p class="time-text">
+              <em
+                >Fun fact: I write code, but my to-do lists are still on pen &
+                paper.</em
+              >
+            </p>
+            <p style="padding-bottom: 5px">
+              Hi, I’m Ronak. I study Computer Science at Georgia Tech and have
+              worked at Amazon, Chick-fil-A’s Innovation & New Ventures Team,
+              and a few startups. I like building things—whether it’s software,
+              startups, or even origami. As an aspiring entrepreneur, I’ve tried
+              turning a few projects into real products, some of which you’ll
+              find below. My development work spans fields in machine learning,
+              automation, and computer vision, but I also love exploring new
+              ideas and pushing the boundaries of what technology can do.
+              Whether it's solving real-world problems or just experimenting,
+              I’m always working on something new!
+            </p>
+            <p class="bold-text">Stay tuned for what I'll make next!</p>
+          </div>
+          <div class="small-container-right">
+            <img src="assets/ronak.heic" class="title-image" />
+          </div>
+        </div>
 
-                var request = new XMLHttpRequest()
-                request.open('GET', url, true)
+        <h2 style="padding-bottom: 20px">My Current Projects</h2>
 
-                request.onload = function () {
-                    if (request.status >= 200 && request.status < 400) {
-                        window.location = url
-                    } else {
-                        parent.location.hash = hash
-                        alert[0].style.display = 'block'
-                        password[0].setAttribute('placeholder', 'Incorrect password')
-                        password[0].value = ''
-                    }
-                }
-                request.onerror = function () {
-                    parent.location.hash = hash
-                    alert[0].style.display = 'block'
-                    password[0].setAttribute('placeholder', 'Incorrect password')
-                    password[0].value = ''
-                }
-                request.send()
-            }
+        <!-- Current Project #1 -->
+        <div
+          class="flex-container-reverse"
+          style="padding-bottom: 50px; padding-top: 40px"
+        >
+          <div class="big-container-left">
+            <h3>Accounting Automation Tool</h3>
+            <p class="time-text">September 2024 - TBD</p>
+            <!--Add your own dates-->
+            <p>
+              We’re building a tool that automates data entry for accounts
+              payable, eliminating the need for accountants to manually transfer
+              information from PDFs into accounting systems. Using AI, the tool
+              extracts and auto-fills relevant fields, reducing time spent on
+              repetitive tasks. We’re currently refining the solution with early
+              testers and working toward integrating it into accounting firms'
+              workflows.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn1"
+            >
+              See more
+            </button>
+          </div>
+          <div class="small-container-right">
+            <img src="assets/desk setup.webp" class="title-image" />
+          </div>
+        </div>
 
-            button[0].addEventListener("click", function () {
-                login(password[0].value)
-            })
+        <!-- Current Project #2 -->
+        <div
+          class="flex-container-reverse"
+          style="padding-bottom: 50px; padding-top: 40px"
+        >
+          <div class="big-container-left">
+            <h3>Financial Organization Tool</h3>
+            <p class="time-text">April 2019 - TBD</p>
+            <!--Add your own dates-->
+            <p>
+              Making things easier when it comes to managing and centralizing
+              financial accounts. More information to come!
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn2"
+            >
+              See more
+            </button>
+          </div>
+          <div class="small-container-right">
+            <img src="assets/app.webp" class="title-image" />
+          </div>
+        </div>
 
-            document.onkeydown = function (e) {
-                e = e || window.event
-                if (e.keyCode == 13) {
-                    login(password[0].value)
-                }
-            }
-        </script>
-    </body>
+        <!-- Current Project #3 -->
+        <!-- <div
+          class="flex-container-reverse"
+          style="padding-bottom: 50px; padding-top: 40px"
+        >
+          <div class="big-container-left">
+            <h3>Mauris</h3>
+            <p class="time-text">June 2022 - TBD</p> -->
+        <!--Add your own dates-->
+        <!-- <p>
+              Consequat id porta nibh venenatis cras sed felis eget. Viverra
+              accumsan in nisl nisi. Quam id leo in vitae. Amet consectetur
+              adipiscing elit pellentesque habitant morbi tristique senectus.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn3"
+            >
+              Visit
+            </button>
+          </div>
+          <div class="small-container-right">
+            <img src="assets/project3.jpg" class="title-image" />
+          </div>
+        </div> -->
+
+        <!-- Completed projects -->
+        <h2 style="padding-bottom: 20px">
+          My Completed Projects (recent to old)
+        </h2>
+
+        <!-- Completed Project #1 - UniVerse -->
+        <div
+          class="flex-container"
+          style="padding-bottom: 100px; padding-top: 50px"
+        >
+          <div class="small-container-left">
+            <img src="assets/app3.webp" alt="UniVerse" class="title-image" />
+          </div>
+          <div class="big-container-right">
+            <h3>UniVerse</h3>
+            <p class="time-text">June 2023 - August 2024</p>
+            <p style="padding-bottom: 10px">
+              A student scheduling platform that streamlines course selection
+              and registration using an AI-powered chatbot.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn3"
+            >
+              See more
+            </button>
+          </div>
+        </div>
+
+        <!-- Completed Project #2 - Amazon Price Predictor -->
+        <div
+          class="flex-container"
+          style="padding-bottom: 100px; padding-top: 50px"
+        >
+          <div class="small-container-left">
+            <img
+              src="assets/project5.webp"
+              alt="Amazon Price Predictor"
+              class="title-image"
+            />
+          </div>
+          <div class="big-container-right">
+            <h3>Amazon Price Predictor</h3>
+            <p class="time-text">December 2023 - June 2024</p>
+            <p style="padding-bottom: 10px">
+              A predictive tool that uses machine learning to forecast weekly
+              Amazon product prices based on historical trends and sentiment
+              analysis.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn4"
+            >
+              See more
+            </button>
+          </div>
+        </div>
+
+        <!-- Completed Project #3 - BinVision -->
+        <div
+          class="flex-container"
+          style="padding-bottom: 100px; padding-top: 50px"
+        >
+          <div class="small-container-left">
+            <img
+              src="assets/project4.jpg"
+              alt="BinVision"
+              class="title-image"
+            />
+          </div>
+          <div class="big-container-right">
+            <h3>BinVision</h3>
+            <p class="time-text">October 2023 - May 2024</p>
+            <p style="padding-bottom: 10px">
+              A computer vision-powered waste classification tool designed to
+              improve recycling accuracy and reduce mis-sorted trash.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn5"
+            >
+              See more
+            </button>
+          </div>
+        </div>
+
+        <!-- Completed Project #4 - Psychologist Assistant Tool -->
+        <div
+          class="flex-container"
+          style="padding-bottom: 100px; padding-top: 50px"
+        >
+          <div class="small-container-left">
+            <img
+              src="assets/project5_2.webp"
+              alt="Psychologist Assistant Tool"
+              class="title-image"
+            />
+          </div>
+          <div class="big-container-right">
+            <h3>Psychologist Assistant Tool</h3>
+            <p class="time-text">May 2023 - May 2024</p>
+            <p style="padding-bottom: 10px">
+              A chatbot powered by AI to enhance psychologists’ diagnostic
+              accuracy and improve patient interactions.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn6"
+            >
+              See more
+            </button>
+          </div>
+        </div>
+
+        <!-- Completed Project #5 - Agricultural Commodity Volatility Predictor -->
+        <div
+          class="flex-container"
+          style="padding-bottom: 100px; padding-top: 50px"
+        >
+          <div class="small-container-left">
+            <img
+              src="assets/project6.webp"
+              alt="Agricultural Commodity Volatility Predictor"
+              class="title-image"
+            />
+          </div>
+          <div class="big-container-right">
+            <h3>Agricultural Commodity Volatility Predictor</h3>
+            <p class="time-text">August 2023 - January 2024</p>
+            <p style="padding-bottom: 10px">
+              Developed a machine learning model to predict price volatility for
+              agricultural commodities like corn, soy, and wheat.
+            </p>
+            <button
+              style="padding-bottom: 5px"
+              type="button"
+              class="btn btn-outline-success"
+              id="btn7"
+            >
+              See more
+            </button>
+          </div>
+        </div>
+
+        <!-- Hobbies -->
+        <h2 style="padding-bottom: 20px">My other hobbies</h2>
+
+        <div class="row">
+          <!-- Soccer -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/soccer.jpg"
+                class="card-img-top left-crop"
+                alt="Soccer"
+              />
+              <div class="card-body">
+                <p class="card-text">Soccer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Startups -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/startups.jpg"
+                class="card-img-top"
+                alt="Startups"
+              />
+              <div class="card-body">
+                <p class="card-text">Startups</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basketball -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/basketball.jpg"
+                class="card-img-top"
+                alt="Basketball"
+              />
+              <div class="card-body">
+                <p class="card-text">Basketball</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Journaling -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/journaling.jpg"
+                class="card-img-top"
+                alt="Journaling"
+              />
+              <div class="card-body">
+                <p class="card-text">Journaling</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pickleball -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/pickleball.jpg"
+                class="card-img-top"
+                alt="Pickleball"
+              />
+              <div class="card-body">
+                <p class="card-text">Pickleball</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Origami -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/origami.jpg"
+                class="card-img-top"
+                alt="Origami"
+              />
+              <div class="card-body">
+                <p class="card-text">Origami</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guitar -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img src="assets/guitar.jpg" class="card-img-top" alt="Guitar" />
+              <div class="card-body">
+                <p class="card-text">Guitar</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Piano -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img src="assets/piano.jpg" class="card-img-top" alt="Piano" />
+              <div class="card-body">
+                <p class="card-text">Piano</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Music Production -->
+          <div class="col-sm-4" style="padding-bottom: 20px">
+            <div class="card">
+              <img
+                src="assets/musicproduction.jpg"
+                class="card-img-top"
+                alt="Music Production"
+              />
+              <div class="card-body">
+                <p class="card-text">Music Production</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <h2 style="padding-bottom: 20px; padding-top: 40px">
+          Languages I speak
+        </h2>
+
+        <!-- Language Proficiency Section -->
+        <h2>Languages</h2>
+
+        <!-- English -->
+        <p>English (fluent)</p>
+        <div class="progressbar">
+          <div class="inner-progressbar english">100%</div>
+        </div>
+        <!-- <audio controls>
+  <source src="assets/English.m4a" />
+  Your browser does not support the audio element.
+</audio> -->
+        <br /><br />
+
+        <!-- Hindi -->
+        <p>Hindi (fluent)</p>
+        <div class="progressbar">
+          <div class="inner-progressbar hindi">100%</div>
+        </div>
+        <!-- <audio controls>
+  <source src="assets/Hindi.m4a" />
+  Your browser does not support the audio element.
+</audio> -->
+        <br /><br />
+
+        <!-- Spanish -->
+        <p>Spanish (kinda)</p>
+        <div class="progressbar">
+          <div class="inner-progressbar spanish">60%</div>
+        </div>
+        <!-- <audio controls>
+  <source src="assets/Spanish.m4a" />
+  Your browser does not support the audio element.
+</audio> -->
+        <br /><br />
+
+        <!-- Pig Latin -->
+        <p>Pig Latin (fluent?)</p>
+        <div class="progressbar">
+          <div class="inner-progressbar piglatin">80%</div>
+        </div>
+        <!-- <audio controls>
+  <source src="assets/PigLatin.m4a" />
+  Your browser does not support the audio element.
+</audio> -->
+        <br /><br />
+
+        <!-- Contact me / ending section -->
+        <h2 style="padding-bottom: 20px; padding-top: 80px">Contact Me</h2>
+
+        <img src="assets/endingImage.jpeg" class="rounded-corners" style="" />
+
+        <br />
+        <br />
+
+        <p style="padding-bottom: 20px">
+          I'd love to get in contact with you, so feel free to reach me on any
+          of these platforms!
+        </p>
+
+        <!-- Contact Links -->
+        <a
+          href="mailto:ronak.agarwal@gatech.edu"
+          class="fa fa-paper-plane"
+          style="margin-right: 10px"
+        ></a>
+        <a
+          href="http://linkedin.com/in/ronak-agarwal9"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fa fa-linkedin"
+          style="margin-right: 10px"
+        ></a>
+        <a
+          href="https://github.com/ronaks-code"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="fa fa-github"
+        ></a>
+
+        <br /><br />
+
+        <!-- Resume Section -->
+        <h3 style="padding-bottom: 10px; padding-top: 40px">View My Resume</h3>
+        <p>
+          Check out my resume to learn more about my experience and projects!
+        </p>
+
+        <!-- Resume Button (Opens in New Tab) -->
+        <a
+          href="assets/Ronak_Agarwal_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-outline-success">View Resume</button>
+        </a>
+
+        <br />
+        <br />
+        <br />
+
+        <!-- <p>
+          Made with ❤ with HTML, CSS, Javascript, & Bootstrap. Template from
+          <a href="https://rosacodes.gumroad.com/l/personal-website-template"
+            >Rosacodes</a
+          >
+        </p> -->
+
+        <!--MODALS-->
+
+        <!-- Modal for Button #1 - change inside information such as images and text to make it your own-->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <span class="closeModal1">&times;</span>
+            <h2>Accounting Automation Tool</h2>
+            <br />
+            <div
+              id="carouselIndicators1"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators1"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators1"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators1"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/desksetup2.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/desksetup3.jpeg"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/desksetup4.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicators1"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicators1"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              A tool designed to eliminate manual data entry for accounts
+              payable, automating the process of extracting and inputting data
+              from PDFs. Currently testing with accountants and refining the
+              model.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>GPT API</li>
+              <li>Chrome Extensions</li>
+              <li>OCR Processing</li>
+              <li>Data Extraction & Parsing</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Understanding accounting workflows</li>
+              <li>Refining AI models for real-world document processing</li>
+              <li>Balancing automation with user control</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Expanding beta testing</li>
+              <li>Optimizing for more invoice formats</li>
+              <li>Building integrations with accounting software</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Button #2 - change inside information such as images and text to make it your own-->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <span class="closeModal2">&times;</span>
+            <h2>Financial Organization Tool</h2>
+            <br />
+            <div
+              id="carouselIndicators2"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators2"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators2"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicators2"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/app1.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/app2.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="assets/app3.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicators2"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicators2"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Currently working on something to simplify financial management.
+              More details coming soon!
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>Web Development</li>
+              <li>Data Security & Encryption</li>
+              <li>Financial API Integrations</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Understanding user privacy concerns</li>
+              <li>Optimizing for financial data accuracy</li>
+              <li>Designing seamless user experiences</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Project #1 - UniVerse (ID: modal3) -->
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+            <span class="closeModal3">&times;</span>
+            <h2>UniVerse</h2>
+            <br />
+            <div
+              id="carouselIndicators3"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/hobby5.jpeg"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="UniVerse Screenshot 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <p>
+              UniVerse is a student scheduling and academic planning platform
+              designed to simplify course selection and registration. It
+              features an AI-powered chatbot that recommends schedules based on
+              past preferences, workload balancing, and availability.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>React.js</li>
+              <li>TypeScript</li>
+              <li>Firebase</li>
+              <li>LangChain (AI chatbot)</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Building scalable web applications</li>
+              <li>Integrating AI with user workflows</li>
+              <li>Handling real-time user data with Firebase</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Expand university integrations</li>
+              <li>Improve chatbot personalization</li>
+              <li>Monetization strategies for premium features</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Project #2 - Amazon Price Predictor (ID: modal4) -->
+        <div id="modal4" class="modal">
+          <div class="modal-content">
+            <span class="closeModal4">&times;</span>
+            <h2>Amazon Price Predictor</h2>
+            <br />
+            <div
+              id="carouselIndicators4"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/project5_3.jpeg"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="Amazon Price Predictor Screenshot 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <p>
+              Developed a machine learning model to predict Amazon product
+              prices by analyzing historical pricing trends, customer sentiment,
+              and product features. The tool scrapes Amazon listings, applies
+              NLP techniques to analyze reviews, and uses deep learning models
+              to make price forecasts.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>Python</li>
+              <li>TensorFlow</li>
+              <li>Selenium</li>
+              <li>BeautifulSoup</li>
+              <li>ChatGPT API</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Data scraping at scale</li>
+              <li>Sentiment analysis with NLP</li>
+              <li>Recurrent neural networks (RNN) for forecasting</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Expanding dataset to include competitor websites</li>
+              <li>Optimizing model accuracy for seasonal trends</li>
+              <li>Building a user-friendly web interface for broader use</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Project #3 - BinVision (ID: modal5) -->
+        <div id="modal5" class="modal">
+          <div class="modal-content">
+            <span class="closeModal5">&times;</span>
+            <h2>BinVision</h2>
+            <br />
+            <div
+              id="carouselIndicators5"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/desksetup2.webp"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="BinVision Screenshot 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <p>
+              BinVision is an AI-powered sustainability project designed to
+              improve recycling accuracy. It leverages a ResNet34 deep learning
+              model to classify waste into appropriate categories, helping users
+              correctly dispose of trash. The system collects data on waste
+              sorting patterns to generate campus-wide sustainability insights.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>React.js</li>
+              <li>Computer Vision</li>
+              <li>Firebase</li>
+              <li>Flask</li>
+              <li>ResNet34 Model</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Training convolutional neural networks (CNNs)</li>
+              <li>Building full-stack machine learning applications</li>
+              <li>Deploying AI models to the cloud</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Deploying the tool on campus waste bins</li>
+              <li>Integrating real-time feedback for users</li>
+              <li>Exploring partnerships with sustainability initiatives</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Project #4 - Psychologist Assistant Tool (ID: modal6) -->
+        <div id="modal6" class="modal">
+          <div class="modal-content">
+            <span class="closeModal6">&times;</span>
+            <h2>Psychologist Assistant Tool</h2>
+            <br />
+            <div
+              id="carouselIndicators6"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/hobby6.jpeg"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="Psychologist Assistant Tool Screenshot 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <p>
+              This AI chatbot helps psychologists improve patient interactions
+              and diagnosis accuracy by leveraging natural language processing
+              (NLP) and machine learning. It analyzes patient conversations and
+              suggests insights based on past data, acting as an intelligent
+              assistant for mental health professionals.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>Python</li>
+              <li>LangChain</li>
+              <li>TensorFlow</li>
+              <li>React.js</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Fine-tuning language learning models (LLMs)</li>
+              <li>Building AI-powered conversational interfaces</li>
+              <li>Ethical considerations in AI for mental health</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Enhancing the chatbot's diagnostic suggestions</li>
+              <li>Developing sentiment-based patient engagement tracking</li>
+              <li>Collaborating with psychologists for real-world testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal for Project #5 - Agricultural Commodity Volatility Predictor (ID: modal7) -->
+        <div id="modal7" class="modal">
+          <div class="modal-content">
+            <span class="closeModal7">&times;</span>
+            <h2>Agricultural Commodity Volatility Predictor</h2>
+            <br />
+            <div
+              id="carouselIndicators7"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="assets/snow.jpg"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="Commodity Predictor Screenshot 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <p>
+              This tool predicts the price volatility of agricultural
+              commodities like corn, soy, and wheat using machine learning
+              models. By analyzing qualitative market outlooks and historical
+              price data, it provides farmers and investors with more accurate
+              predictions for future price swings.
+            </p>
+            <p><strong>Skills Used:</strong></p>
+            <ul>
+              <li>Python</li>
+              <li>Scikit-learn</li>
+              <li>Pandas</li>
+              <li>Natural Language Toolkit (NLTK)</li>
+              <li>TensorFlow</li>
+            </ul>
+            <p><strong>Skills Learned:</strong></p>
+            <ul>
+              <li>Feature engineering for time series forecasting</li>
+              <li>Sentiment analysis for financial markets</li>
+              <li>Building automated data pipelines</li>
+            </ul>
+            <p><strong>Next Steps:</strong></p>
+            <ul>
+              <li>Expanding model coverage to other commodity markets</li>
+              <li>Improving real-time data integration</li>
+              <li>Exploring API integrations for financial analysts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MODALS FOR HOBBIES -->
+
+        <!-- Modal for Hobby Button #1 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby1" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby1">&times;</span>
+            <h2>Tennis</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby1"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby1"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby1"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby1"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/5730299/pexels-photo-5730299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/5739122/pexels-photo-5739122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/5836917/pexels-photo-5836917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby1"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby1"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Egestas congue quisque egestas diam in arcu cursus euismod.
+              Accumsan lacus vel facilisis volutpat est velit egestas dui. Nulla
+              porttitor massa id neque aliquam vestibulum morbi blandit. Enim ut
+              tellus elementum sagittis vitae et leo duis. Neque gravida in
+              fermentum et sollicitudin ac. Pharetra et ultrices neque ornare
+              aenean euismod. Tincidunt id aliquet risus feugiat in ante metus
+              dictum.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal for Hobby Button #2 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby2" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby2">&times;</span>
+            <h2>Basketball</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby2"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby2"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby2"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby2"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/163452/basketball-dunk-blue-game-163452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/1080882/pexels-photo-1080882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/1332237/pexels-photo-1332237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby2"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby2"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Suscipit tellus mauris a diam maecenas sed enim ut. Eu augue ut
+              lectus arcu bibendum at. Auctor augue mauris augue neque gravida
+              in. Fringilla ut morbi tincidunt augue interdum velit euismod in.
+              Etiam sit amet nisl purus in mollis nunc sed id. Ullamcorper eget
+              nulla facilisi etiam dignissim diam quis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal for Hobby Button #3 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby3" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby3">&times;</span>
+            <h2>Soccer</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby3"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby3"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby3"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby3"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/3148452/pexels-photo-3148452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby3"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby3"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Augue neque gravida in fermentum et sollicitudin ac orci. Donec
+              enim diam vulputate ut pharetra sit amet aliquam. Praesent semper
+              feugiat nibh sed pulvinar proin. At ultrices mi tempus imperdiet
+              nulla malesuada pellentesque elit eget. Posuere ac ut consequat
+              semper. Sollicitudin tempor id eu nisl nunc mi. Quam adipiscing
+              vitae proin sagittis nisl rhoncus mattis rhoncus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal for Hobby Button #4 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby4" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby4">&times;</span>
+            <h2>Piano</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby4"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby4"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby4"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby4"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/322719/pexels-photo-322719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/2378209/pexels-photo-2378209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/164715/pexels-photo-164715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby4"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby4"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Augue neque gravida in fermentum et sollicitudin ac orci. Donec
+              enim diam vulputate ut pharetra sit amet aliquam. Praesent semper
+              feugiat nibh sed pulvinar proin. At ultrices mi tempus imperdiet
+              nulla malesuada pellentesque elit eget. Posuere ac ut consequat
+              semper. Sollicitudin tempor id eu nisl nunc mi. Quam adipiscing
+              vitae proin sagittis nisl rhoncus mattis rhoncus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal for Hobby Button #5 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby5" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby5">&times;</span>
+            <h2>Painting</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby5"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby5"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby5"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby5"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/2728587/pexels-photo-2728587.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/6184431/pexels-photo-6184431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/6404197/pexels-photo-6404197.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby5"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby5"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Augue neque gravida in fermentum et sollicitudin ac orci. Donec
+              enim diam vulputate ut pharetra sit amet aliquam. Praesent semper
+              feugiat nibh sed pulvinar proin. At ultrices mi tempus imperdiet
+              nulla malesuada pellentesque elit eget. Posuere ac ut consequat
+              semper. Sollicitudin tempor id eu nisl nunc mi. Quam adipiscing
+              vitae proin sagittis nisl rhoncus mattis rhoncus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal for Hobby Button #5 - change inside information such as images and text to make it your own-->
+        <div id="modalHobby6" class="modal">
+          <div class="modal-content">
+            <span class="closeModalHobby6">&times;</span>
+            <h2>Skiing</h2>
+            <br />
+            <div
+              id="carouselIndicatorsHobby6"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby6"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby6"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselIndicatorsHobby6"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/47356/freerider-skiing-ski-sports-47356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/3193846/pexels-photo-3193846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                    style="height: 400px; object-fit: contain; width: 100%"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <br />
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby6"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselIndicatorsHobby6"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <p>
+              Augue neque gravida in fermentum et sollicitudin ac orci. Donec
+              enim diam vulputate ut pharetra sit amet aliquam. Praesent semper
+              feugiat nibh sed pulvinar proin. At ultrices mi tempus imperdiet
+              nulla malesuada pellentesque elit eget. Posuere ac ut consequat
+              semper. Sollicitudin tempor id eu nisl nunc mi. Quam adipiscing
+              vitae proin sagittis nisl rhoncus mattis rhoncus.
+            </p>
+          </div>
+        </div>
+      </center>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
 </html>
