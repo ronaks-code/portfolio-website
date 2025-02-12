@@ -1,23 +1,16 @@
 #canvas-image-blending {
   position: absolute;
-  width: 100%;
-  height: 750px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: 850px;
+  object-fit: fill;
 }
 
 .main-content {
   padding: 5% 5%;
-}
-
-.header {
-  display: flex;
-}
-
-.work-header {
-  display: flex;
 }
 
 h1 {
@@ -56,63 +49,413 @@ p {
   color: black;
 }
 
-.header-text {
-  width: 80%;
-}
-
-.header-image {
-  width: 65%;
-  height: 65%;
-}
-
-.col {
-  padding-bottom: 30px;
-}
-
-.rounded-corners {
-  border-radius: 20px;
-  height: 300px;
-}
-
 .title-image {
-  border-radius: 20px;
+  border-radius: 24px;
   width: 80%;
+}
+
+/* Base styling for the vertical nav */
+.vertical-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px; /* Smaller pill size */
+  height: 150px; /* Smaller height when closed */
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 25px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  overflow: visible;
+}
+
+/* Expand the pill on hover */
+.vertical-nav:hover {
+  width: 70px; /* Expands the pill */
+  height: 300px; /* Expands to full size */
+  border-radius: 35px;
+}
+
+/* Styling the navigation buttons */
+.vertical-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Default state: Small dots */
+.vertical-nav li {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #ff758c);
+  border-radius: 50%;
+  margin: 8px 0;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* On nav hover, make the dots expand and show icons */
+.vertical-nav:hover li {
+  width: 40px;
+  height: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Smooth icon fade-in animation */
+.vertical-nav li i {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Icons appear smoothly when hovering over the expanded nav */
+.vertical-nav:hover li i {
+  opacity: 1;
+  transform: scale(1);
+  font-size: 16px;
+  color: black;
+}
+
+/* Change circle color and add a subtle scaling effect when hovering over individual icons */
+.vertical-nav li:hover {
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #ff758c);
+  transform: scale(1.3); /* Slight scale effect */
+}
+
+.vertical-nav li i:hover {
+  color: white;
+}
+
+/* Tooltip text that only appears on hover over the icon */
+.nav-label {
+  position: absolute;
+  left: 55px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
+  z-index: 999; /* ✅ Ensure it's above everything */
+}
+
+/* Make text visible only when hovering over the icon */
+.vertical-nav li:hover .nav-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+/* 🔹 Vertical Line Connecting the Items */
+/* .timeline-line {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #6a11cb, #2575fc);
+  border-radius: 2px;
+} */
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Keeps the date on the left */
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-date {
+  flex: 0 0 120px;
+  text-align: right;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.timeline-content {
+  flex: 1;
+  max-width: 600px;
+  background: linear-gradient(135deg, #d0c4fc, #b5d0ff, #ffdee3);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Helps remove background */
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  /* ❌ Remove display: none; */
+  position: fixed;
+  z-index: 1000; /* Ensure it's above everything */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+
+  /* ✅ Initially hidden but can be shown smoothly */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease-in-out;
 }
 
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ✅ Ensure full height for proper centering */
+}
+
+/* ✅ Fix modal centering */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  border-radius: 3%;
+  border-radius: 24px;
+  width: 80%;
+  max-width: 1200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
 }
 
-.close {
+/* ✅ Fix visibility when modal is active */
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  border-radius: 24px;
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Close Button */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
   color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.modal .close:hover,
+.modal .close:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
+}
+
+/* ✅ Fix the modal border animation */
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); /* 3 Equal Columns */
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+/* ✅ Wrapper for "Skills Used" & "Project Links" */
+.grouped-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures proper spacing */
+  min-height: 100%; /* Dynamic height matching full boxes */
+}
+
+/* ✅ Each section inside grouped-box gets its own background */
+.half-box {
+  flex: 1; /* Allows dynamic growth */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  border-radius: 24px; /* Round edges */
+  background: linear-gradient(135deg, #d0c4fc, #b5d0ff, #ffdee3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+}
+
+/* ✅ Divider between Skills Used & Project Links */
+.half-box:not(:last-child) {
+  margin-bottom: 10px; /* Space between */
+}
+
+/* ✅ Ensure "Skills Learned" & "Next Steps" remain full height */
+.full-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #d0c4fc, #b5d0ff, #ffdee3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+}
+
+.modal-grid::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+  background-size: 400% 400%;
+  animation: borderSpin 4s linear infinite;
+  z-index: -900;
+  filter: blur(8px);
+}
+
+@keyframes borderSpin {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Make sure content stays within limits */
+.grid-item ul {
+  padding-left: 20px; /* Reduce left padding */
+  margin-top: 20px; /* Reduce top margin */
+  margin-bottom: -5px; /* Prevent excess spacing at bottom */
+  list-style-position: inside;
+}
+
+.grid-item li {
+  padding-left: 0px;
+  margin-top: -0px;
+}
+
+.grid-item h3 {
+  margin-bottom: -25px; /* Remove top margin */
+}
+
+/* Optional: Make the border of each card dynamic */
+.grid-item {
+  background: linear-gradient(135deg, #d0c4fc, #b5d0ff, #ffdee3);
+  border-radius: 28px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated border effect */
+.grid-item::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #ff758c);
+  background-size: 400% 400%;
+  animation: borderGlow 4s linear infinite;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Glowing Animated Border Effect */
+.grid-item::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #ff758c);
+  background-size: 400% 400%;
+  animation: borderGlow 4s linear infinite;
+  z-index: -2;
+  filter: blur(6px); /* Gives a soft glowing effect */
+}
+
+/* Border animation */
+/* @keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr; /* Stack all items in a single column */
+  }
+  .half-box,
+  .full-box {
+    height: auto; /* Allow dynamic resizing */
+  }
 }
 
 ul {
@@ -164,13 +507,6 @@ ul {
   object-fit: cover; /* Crops instead of stretching */
 }
 
-.card-video {
-  width: 100%; /* Ensures the video fills the card */
-  aspect-ratio: 4 / 5; /* Keeps the same aspect ratio as images */
-  object-fit: cover; /* Crops the video instead of stretching */
-  cursor: pointer; /* Shows a pointer when hovering over the video */
-}
-
 .left-crop {
   width: 100%; /* Ensures it fills the container */
   height: 100%; /* Maintains aspect ratio */
@@ -178,7 +514,46 @@ ul {
   object-position: left; /* Moves focus to the left side of the image */
 }
 
+/* Make the previous and next buttons red */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 50px;
+  height: 50px;
+  filter: invert(24%) sepia(94%) saturate(7494%) hue-rotate(357deg)
+    brightness(98%) contrast(119%);
+  border-radius: 50%; /* Optional: Makes them circular */
+}
+
+/* Make sure the background color doesn't make the icons disappear */
+.carousel-control-prev,
+.carousel-control-next {
+  background: none;
+  border: none;
+}
+
+.carousel-item img {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.modal-description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: oblique;
+  color: black;
+  padding-top: 20px;
+}
+
 /* Contact me section */
+.rounded-corners {
+  border-radius: 24px;
+  height: 300px;
+}
 
 .fa {
   padding: 20px;
@@ -190,33 +565,47 @@ ul {
 }
 
 .fa:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .fa-paper-plane {
-  background: #3d348b;
+  background: #921df2;
   color: white;
 }
 
-.fa-instagram {
-  background: #7678ed;
+.fa-linkedin {
+  background: #0077b5; /* Official LinkedIn blue */
   color: white;
 }
 
 .fa-github {
-  background: #0973fd;
+  background: #171515; /* Official GitHub dark gray */
   color: white;
 }
 
 /* Styling for the progress bars */
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 20px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.language-item {
+  text-align: center;
+}
 
 .progressbar {
   height: 30px;
-  width: 20%;
+  width: 100%;
   background-color: #3d348b;
   display: flex;
   align-items: center;
-  margin: 20px;
+  border-radius: 24px;
+  margin: 10px auto;
+  justify-content: left;
 }
 
 .inner-progressbar {
@@ -228,6 +617,7 @@ ul {
   color: white;
   text-align: right;
   font-size: 15px;
+  border-radius: 24px;
 }
 
 .hindi {
@@ -256,8 +646,12 @@ ul {
     align-items: center;
   }
 
+  .language-grid {
+    grid-template-columns: 1fr; /* Switch to one column on smaller screens */
+  }
+
   .progressbar {
-    width: 60%;
+    width: 80%;
   }
 
   .flex-container-reverse {
