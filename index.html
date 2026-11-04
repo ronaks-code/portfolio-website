@@ -51,6 +51,7 @@
             <a class="btn btn-glass" href="#contact">Say hi</a>
           </div>
         </div>
+        <p class="hero-hint" aria-hidden="true">{{icon-sparkle}} <span class="hint-mouse">Move around, click the sky</span><span class="hint-touch">Tap the sky</span></p>
         <a class="scroll-cue" href="#introduction" aria-label="Scroll to introduction"><span></span></a>
       </section>
 
@@ -100,12 +101,34 @@
         </div>
       </section>
 
+      <!-- Playground -->
+      <section class="section" id="playground">
+        <div class="wrap">
+          <div class="pg-head reveal">
+            <h2 class="section-title"><span class="kicker">04</span> Playground</h2>
+            <p class="pg-sub">A pocket mountain range, folded out of paper and generated from a random seed. Drag to spin it, grow a new one, or click the peaks to call the cranes.</p>
+          </div>
+          <div class="playground reveal" data-playground>
+            <canvas aria-label="Interactive 3D paper mountain range. Drag to rotate, click the terrain to call the paper cranes."></canvas>
+            <div class="pg-loading" aria-hidden="true"><span></span></div>
+            <div class="pg-top">
+              <span class="pg-seed">Range <b data-seed>#0000</b></span>
+              <span class="pg-tip"><span class="hint-mouse">Drag to spin · click a peak</span><span class="hint-touch">Swipe to spin · tap a peak</span></span>
+            </div>
+            <div class="pg-controls">
+              <button type="button" class="btn btn-light btn-sm" data-new-range>{{icon-shuffle}} New range</button>
+              <div class="swatches" role="group" aria-label="Sky color">{{palettes}}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Resume -->
       <section class="section" id="resume">
         <div class="wrap">
           <div class="resume-card glow-card reveal">
             <div>
-              <h2 class="section-title"><span class="kicker">04</span> View My Resume</h2>
+              <h2 class="section-title"><span class="kicker">05</span> View My Resume</h2>
               <p>Check out my resume to learn more about my experience and projects!</p>
             </div>
             <a class="btn btn-grad" href="{{resume-href}}" target="_blank" rel="noopener noreferrer">View Resume {{icon-external}}</a>
@@ -136,7 +159,7 @@
             <div class="contact-aurora" aria-hidden="true"></div>
             <img class="contact-photo" src="/img/contactRonak.webp" alt="Ronak" loading="lazy" decoding="async" />
             <div class="contact-text">
-              <h2 class="section-title"><span class="kicker">05</span> Contact Me</h2>
+              <h2 class="section-title"><span class="kicker">06</span> Contact Me</h2>
               <p>I'd love to get in contact with you, so feel free to reach me on any of these platforms!</p>
               <div class="socials">{{socials}}</div>
             </div>

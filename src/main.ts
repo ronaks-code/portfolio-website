@@ -9,12 +9,58 @@ const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matc
 const canvas = document.querySelector<HTMLCanvasElement>(".hero-canvas");
 if (canvas) {
   const start = () =>
-    import("./hero")
-      .then(({ initHero }) => initHero(canvas))
+    import("./three/hero")
+      .then(({ initHero }) => initHero(canvas, "/img/snow.webp"))
       .catch((err) => console.warn("Hero scene unavailable, using fallback.", err));
   if ("requestIdleCallback" in window) requestIdleCallback(start, { timeout: 600 });
   else setTimeout(start, 120);
 }
+
+// Hide the hero hint after the first interaction
+document.querySelector(".hero")?.addEventListener(
+  "hero:gust",
+  () => document.querySelector(".hero-hint")?.classList.add("used"),
+  { once: true },
+);
+
+// ---------- Playground (loads when it gets close to the viewport) ----------
+const pg = document.querySelector<HTMLElement>("[data-playground]");
+if (pg) {
+  const pgIO = new IntersectionObserver(
+    ([e]) => {
+      if (!e.isIntersecting) return;
+      pgIO.disconnect();
+      import("./three/playground")
+        .then(({ initPlayground }) => initPlayground(pg))
+        .catch((err) => {
+          console.warn("Playground unavailable.", err);
+          pg.classList.add("no-webgl");
+        });
+    },
+    { rootMargin: "600px 0px" },
+  );
+  pgIO.observe(pg);
+  pg.addEventListener("playground:call", () => pg.classList.add("used"), { once: true });
+}
+
+// ---------- Hobby clips: play on hover (desktop) or while on screen (touch) ----------
+document.querySelectorAll<HTMLElement>(".hobby.has-video").forEach((card) => {
+  const v = card.querySelector("video")!;
+  const play = () => {
+    v.play().then(() => card.classList.add("playing")).catch(() => {});
+  };
+  const pause = () => {
+    v.pause();
+    card.classList.remove("playing");
+  };
+  if (reduced) return;
+  if (finePointer) {
+    card.addEventListener("pointerenter", play);
+    card.addEventListener("pointerleave", pause);
+  } else {
+    new IntersectionObserver(([e]) => (e.isIntersecting ? play() : pause()), { threshold: 0.6 }).observe(card);
+  }
+});
 
 // ---------- Typewriter (types, holds, erases, loops, like the original) ----------
 const typeEl = document.querySelector<HTMLElement>("[data-type]");
