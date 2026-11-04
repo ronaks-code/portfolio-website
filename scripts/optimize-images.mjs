@@ -41,6 +41,17 @@ for (const [width, files] of Object.entries(groups)) {
   }
 }
 
+// Ronak's own photo (HEIC): macOS `sips` decodes it, sharp re-encodes.
+import { execFileSync } from "node:child_process";
+try {
+  execFileSync("sips", ["-s", "format", "jpeg", `${SRC}/basketballMain.heic`, "--out", "/tmp/basketballMain.jpg"], { stdio: "ignore" });
+  await sharp("/tmp/basketballMain.jpg").rotate().resize({ width: 900 }).webp({ quality: 78 }).toFile(`${OUT}/basketballMain.webp`);
+} catch {
+  console.warn("skipped basketballMain.heic (needs macOS sips)");
+}
+// Soccer clip: ffmpeg -ss 21 -t 8 -i assets/soccer.mov -an -vf "crop=576:720:(in_w-576)/2:0,scale=480:600" \
+//   -c:v libx264 -crf 27 -movflags +faststart public/media/soccer.mp4
+
 // Open Graph card + no-WebGL fallback for the hero
 await sharp(`${SRC}/snow.jpg`).resize(1200, 630, { fit: "cover" }).jpeg({ quality: 80 }).toFile("public/og.jpg");
 await sharp(`${SRC}/snow.jpg`).resize({ width: 1920 }).webp({ quality: 70 }).toFile(`${OUT}/snow.webp`);

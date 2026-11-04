@@ -2,6 +2,7 @@
 // injected into index.html, so the page ships as real static HTML (fast first
 // paint, crawlable) while data.ts stays the single source of content.
 import { contact, experience, hobbies, languages, projects, type Project } from "./data.ts";
+import { PALETTES } from "./three/palettes.ts";
 
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -15,6 +16,9 @@ export const icons = {
   code: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>`,
   file: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>`,
   heart: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"/></svg>`,
+  sparkle: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>`,
+  shuffle: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-10 4 6 3-4 5 8z"/><path d="M3 21h18"/></svg>`,
+  play: `<svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M8 5v14l11-7z"/></svg>`,
   arrow: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`,
   external: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`,
 };
@@ -23,6 +27,7 @@ export const nav = [
   { id: "introduction", label: "Introduction", icon: icons.user },
   { id: "experience", label: "Experience", icon: icons.briefcase },
   { id: "projects", label: "Projects", icon: icons.code },
+  { id: "playground", label: "Playground", icon: icons.sparkle },
   { id: "resume", label: "Resume", icon: icons.file },
   { id: "contact", label: "Contact", icon: icons.mail },
 ];
@@ -111,13 +116,24 @@ function renderLanguages() {
 
 function renderHobbies() {
   return hobbies
-    .map(
-      (h, i) => `<figure class="hobby tilt reveal" style="--d:${(i % 3) * 80}ms">
-      <img src="${h.image}" alt="${esc(h.name)}" loading="lazy" decoding="async">
-      <figcaption>${esc(h.name)}</figcaption>
-    </figure>`,
-    )
+    .map((h, i) => {
+      const media = h.video
+        ? `<video src="${h.video}" poster="${h.image}" muted loop playsinline preload="none" aria-label="${esc(h.name)} clip"></video>
+           <span class="play-badge" aria-hidden="true">${icons.play}</span>`
+        : `<img src="${h.image}" alt="${esc(h.name)}" loading="lazy" decoding="async">`;
+      return `<figure class="hobby tilt reveal${h.video ? " has-video" : ""}" style="--d:${(i % 3) * 80}ms">
+      ${media}
+      <figcaption><span>${esc(h.name)}</span>${h.note ? `<small>${esc(h.note)}</small>` : ""}</figcaption>
+    </figure>`;
+    })
     .join("");
+}
+
+function renderPalettes() {
+  return PALETTES.map(
+    (p, i) => `<button type="button" class="swatch" data-palette="${i}" aria-pressed="false" title="${p.name}"
+      style="--a:${p.top};--b:${p.bottom}"><span class="sr-only">${p.name} sky</span></button>`,
+  ).join("");
 }
 
 function renderSocials() {
@@ -135,7 +151,10 @@ export const slots: Record<string, () => string> = {
   languages: renderLanguages,
   hobbies: renderHobbies,
   socials: renderSocials,
+  palettes: renderPalettes,
   "icon-arrow": () => icons.arrow,
+  "icon-shuffle": () => icons.shuffle,
+  "icon-sparkle": () => icons.sparkle,
   "icon-file": () => icons.file,
   "icon-external": () => icons.external,
   "resume-href": () => contact.resume,

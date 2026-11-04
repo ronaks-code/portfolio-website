@@ -250,10 +250,12 @@ export const languages = [
   { name: "Pig Latin", note: "fluent?", level: 80 },
 ];
 
-export const hobbies = [
-  { name: "Soccer", image: img("soccer") },
+export type Hobby = { name: string; image: string; video?: string; note?: string };
+
+export const hobbies: Hobby[] = [
+  { name: "Soccer", image: img("soccer-poster"), video: "/media/soccer.mp4" },
   { name: "Startups", image: img("startups") },
-  { name: "Basketball", image: img("basketball") },
+  { name: "Basketball", image: img("basketballMain"), note: "Hawks game, State Farm Arena" },
   { name: "Journaling", image: img("journaling") },
   { name: "Pickleball", image: img("pickleball") },
   { name: "Origami", image: img("origami") },
