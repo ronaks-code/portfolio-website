@@ -24,8 +24,9 @@ export const easeOutBack = (t: number) => {
 /** Cycles the palettes like Granim: returns blended top/bottom (sRGB vectors). */
 export function paletteAt(ms: number, top: Vector3, bottom: Vector3) {
   const t = ms / STATE_MS;
-  const i = Math.floor(t) % PALETTES.length;
-  const j = (i + 1) % PALETTES.length;
+  const n = PALETTES.length;
+  const i = ((Math.floor(t) % n) + n) % n;
+  const j = (i + 1) % n;
   const f = smooth(0, 1, t - Math.floor(t));
   const a = srgb(PALETTES[i].top, _a);
   const b = srgb(PALETTES[j].top, _b);
@@ -100,7 +101,7 @@ export function runWhileVisible(el: Element, frame: (dt: number, elapsed: number
   let elapsed = 0;
   const tick = (now: number) => {
     raf = requestAnimationFrame(tick);
-    const dt = Math.min((now - last) / 1000, 0.05);
+    const dt = Math.max(0, Math.min((now - last) / 1000, 0.05));
     last = now;
     elapsed += dt;
     frame(dt, elapsed);
@@ -115,7 +116,7 @@ export function runWhileVisible(el: Element, frame: (dt: number, elapsed: number
     running = false;
     cancelAnimationFrame(raf);
   };
-  const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()), {
+  const io = new IntersectionObserver((entries) => (entries[entries.length - 1].isIntersecting ? start() : stop()), {
     rootMargin: "80px",
   });
   io.observe(el);

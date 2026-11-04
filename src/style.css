@@ -1415,7 +1415,7 @@ svg.fill {
   background: linear-gradient(180deg, #29323c, #485563);
   box-shadow: var(--shadow-lg);
   isolation: isolate;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 .playground canvas {
   position: absolute;

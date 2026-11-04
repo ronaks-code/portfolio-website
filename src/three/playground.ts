@@ -301,6 +301,7 @@ export function initPlayground(root: HTMLElement) {
   chips.forEach((b) =>
     b.addEventListener("click", () => {
       fixedPalette = Number(b.dataset.palette);
+      dirty = true;
       chips.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     }),
   );
@@ -364,7 +365,10 @@ export function initPlayground(root: HTMLElement) {
     root.dispatchEvent(new CustomEvent("playground:call"));
   }
 
-  root.querySelector("[data-new-range]")?.addEventListener("click", () => newRange());
+  root.querySelector("[data-new-range]")?.addEventListener("click", () => {
+    newRange();
+    dirty = true;
+  });
 
   // ---- sizing ----
   const resize = () => {
@@ -375,6 +379,7 @@ export function initPlayground(root: HTMLElement) {
     camera.aspect = w / h;
     camera.fov = camera.aspect < 1 ? 50 : 34;
     camera.updateProjectionMatrix();
+    dirty = true;
   };
   new ResizeObserver(resize).observe(canvas);
 
@@ -393,8 +398,14 @@ export function initPlayground(root: HTMLElement) {
     return tgt.add(b.offset);
   }
 
+  let dirty = true;
   function draw(dt: number) {
-    elapsed += dt;
+    if (reduced) {
+      // no ambient motion: render only after input/resize, with frozen time
+      if (!dirty && !dragging && Math.abs(tAz - az) < 1e-3 && Math.abs(tEl - el) < 1e-3) return;
+      dirty = false;
+      dt = 0.016;
+    } else elapsed += dt;
     idleT += dt;
     if (!dragging && idleT > 2.5 && !reduced) tAz += dt * 0.08;
     az += (tAz - az) * Math.min(1, dt * 5);
@@ -428,7 +439,7 @@ export function initPlayground(root: HTMLElement) {
 
     snow.uniforms.uTime.value = elapsed;
     snow.uniforms.uGust.value *= Math.exp(-dt * 1.5);
-    flock.update(reduced ? 0.016 : dt, elapsed, craneTarget);
+    flock.update(reduced ? 0 : dt, elapsed, craneTarget);
 
     renderer.render(scene, camera);
   }
