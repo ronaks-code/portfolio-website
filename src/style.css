@@ -1363,15 +1363,21 @@ svg.fill {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   pointer-events: none;
-  animation: rise 1s 1.4s var(--ease) both;
-  transition: opacity 0.6s, transform 0.6s var(--ease);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s 0.8s, transform 0.6s 0.8s var(--ease);
+}
+.hero-canvas.interactive ~ .hero-hint {
+  opacity: 1;
+  transform: none;
 }
 .hero-hint svg {
   color: var(--purple);
 }
-.hero-hint.used {
+.hero-canvas.interactive ~ .hero-hint.used {
   opacity: 0;
   transform: translateY(8px);
+  transition-delay: 0s;
 }
 .hint-touch {
   display: none;

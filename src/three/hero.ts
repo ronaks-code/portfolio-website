@@ -227,6 +227,7 @@ export function initHero(canvas: HTMLCanvasElement, photoUrl: string) {
     if (!ready && photoU.uTex.value) {
       ready = true;
       canvas.classList.add("ready");
+      if (!reduced) canvas.classList.add("interactive");
     }
   }
 
